@@ -1,6 +1,17 @@
 import xml.etree.ElementTree as ET 
 root = ET.parse(source = 'cd_catalog.xml') 
-count = 0 disks = root.getiterator() 
+#Part1 total price of CD;s
+#Part2 min, max, avg price of CD;s
+#Part3 total number released during 1990
+#Part4 names of artists from USA
+#Part4 List comprehension to minimize code
+
+price_count = 0 
+total_count = 0
+
+
+
+disks = root.getiterator() 
 
 #find the price
 for disk in disks:     
@@ -9,8 +20,15 @@ for disk in disks:
     price = disk.find('PRICE').text        
     print price *= count  for disk in disks:     
     
-#find the country  
-if disk.tag == 'CD':         
-country = disk.find('COUNTRY")        
-  if country == 'USA':             
-    print country.text    
+#find the name   
+for disk in disks:
+  if disk.tag == 'CD':         
+  country = disk.find('COUNTRY")        
+    if country == 'USA':    
+      name = disk.find('NAME').text
+      print name 
+      
+    
+    
+
+
